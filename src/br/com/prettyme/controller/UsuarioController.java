@@ -44,7 +44,7 @@ public class UsuarioController {
 		}
 		clienteDao.cadastrar(cliente);
 		r.addFlashAttribute("msg", "Cadastrado com sucesso");
-		return new ModelAndView("redirect:/index");
+		return new ModelAndView("usuario/cadastroCliente");
 	}
 	
 	@GetMapping("cadastrarPrestador")
@@ -54,13 +54,13 @@ public class UsuarioController {
 	
 	@Transactional
 	@PostMapping("cadastrarPrestador")
-	public ModelAndView cadastrarPrestador(@Valid Prestador prestador, BindingResult result, RedirectAttributes r) {
+	public ModelAndView cadastrarPrestador(Prestador prestador, BindingResult result, RedirectAttributes r) {
 		if (result.hasErrors()) {
 			cadastrarPrestador(prestador);
 		}
 		prestadorDao.cadastrar(prestador);
 		r.addFlashAttribute("msg", "Cadastrado com sucesso");
-		return new ModelAndView("redirect:/index");
+		return new ModelAndView("usuario/cadastroPrestador");
 	}
 
 	@GetMapping("listarCliente")

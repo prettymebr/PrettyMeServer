@@ -8,21 +8,43 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @PrimaryKeyJoinColumn(name="idUsuario")
 @Table(name = "T_PM_CLIENTE")
-@NoArgsConstructor @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cliente extends Usuario{
 	
-	@Column @Getter @Setter private float rate;
+	@Column
+	private float rate;
 	
-	@Column @OneToMany(mappedBy = "cliente") @Getter @Setter private List<Agendamento> agendamentos;
+	@Column @OneToMany(mappedBy = "cliente") 
+	private List<Agendamento> agendamentos;
+	
+	public Cliente() {
+		super();
+	}
 
+	public Cliente(float rate, List<Agendamento> agendamentos) {
+		super();
+		this.rate = rate;
+		this.agendamentos = agendamentos;
+	}
+
+	public float getRate() {
+		return rate;
+	}
+
+	public void setRate(float rate) {
+		this.rate = rate;
+	}
+
+	public List<Agendamento> getAgendamentos() {
+		return agendamentos;
+	}
+
+	public void setAgendamentos(List<Agendamento> agendamentos) {
+		this.agendamentos = agendamentos;
+	}
 }
