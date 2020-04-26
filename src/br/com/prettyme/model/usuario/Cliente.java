@@ -1,13 +1,13 @@
-package br.com.prettyme.model;
+package br.com.prettyme.model.usuario;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import br.com.prettyme.model.servico.Agendamento;
 import lombok.EqualsAndHashCode;
 
 @Entity
@@ -16,10 +16,10 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cliente extends Usuario{
 	
-	@Column
+	
 	private float rate;
 	
-	@Column @OneToMany(mappedBy = "cliente") 
+	@OneToMany(mappedBy = "cliente") 
 	private List<Agendamento> agendamentos;
 	
 	public Cliente() {

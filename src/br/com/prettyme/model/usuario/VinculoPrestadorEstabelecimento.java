@@ -1,4 +1,4 @@
-package br.com.prettyme.model;
+package br.com.prettyme.model.usuario;
 
 import java.util.Date;
 import java.util.List;

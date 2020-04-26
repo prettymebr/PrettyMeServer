@@ -1,7 +1,9 @@
-package br.com.prettyme.model;
+package br.com.prettyme.model.usuario;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,7 +17,10 @@ import lombok.EqualsAndHashCode;
 public class Endereco {
 
 	@Id
-	@Column(name = "id_endereco")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private int id_cep;
+	
+	@Column(name = "cep_endereco")
 	private String cep;
 
 	@Column(name = "rua_endereco")
@@ -36,18 +41,20 @@ public class Endereco {
 	@Column(name = "is_principal_endereco")
 	private boolean principal;
 
-	@JoinColumn(name = "ds_endereco_alternativo")
 	@ManyToOne
+	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
+
 
 	
 	public Endereco() {
 		super();
 	}
 
-	public Endereco(String cep, String logradouro, String complemento, String bairro, String localidade, String uf,
-			boolean principal, Usuario usuario) {
+	public Endereco(int id_cep, String cep, String logradouro, String complemento, String bairro, String localidade,
+			String uf, boolean principal, Usuario usuario) {
 		super();
+		this.id_cep = id_cep;
 		this.cep = cep;
 		this.logradouro = logradouro;
 		this.complemento = complemento;
@@ -56,6 +63,15 @@ public class Endereco {
 		this.uf = uf;
 		this.principal = principal;
 		this.usuario = usuario;
+	}
+
+
+	public int getId_cep() {
+		return id_cep;
+	}
+
+	public void setId_cep(int id_cep) {
+		this.id_cep = id_cep;
 	}
 
 	public String getCep() {

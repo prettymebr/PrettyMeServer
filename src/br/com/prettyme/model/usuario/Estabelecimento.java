@@ -1,4 +1,4 @@
-package br.com.prettyme.model;
+package br.com.prettyme.model.usuario;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

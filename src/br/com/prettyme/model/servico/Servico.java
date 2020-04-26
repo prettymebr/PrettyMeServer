@@ -1,4 +1,4 @@
-package br.com.prettyme.model;
+package br.com.prettyme.model.servico;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package br.com.prettyme.model;
+package br.com.prettyme.model.servico;
 
 import java.util.Date;
 import java.util.List;
@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.com.prettyme.model.usuario.Cliente;
+import br.com.prettyme.model.usuario.Prestador;
 import lombok.EqualsAndHashCode;
 
 
