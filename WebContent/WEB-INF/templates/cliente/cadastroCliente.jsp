@@ -6,12 +6,11 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <tags:template titulo="Pagina de teste">
 
-	<div class="d-flex flex-row">
-		<div class="d-flex justify-content-center">
-			<h2>Cadastro de Cliente</h2>
-		</div>
-	</div>
 	
+		
+	<h1 class="text-center">Cadastro de Cliente</h1>
+		
+		
 	<c:if test="${not empty msg }">
 		<div class="alert alert-success">${msg }</div>
 	</c:if>
@@ -20,32 +19,37 @@
 	<form:form action="#{acao }" method="post" modelAttribute="cliente">
 
 		<div class="row">
-			<div class="form-group col-6">
+			<div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
 				<form:label path="nome">Primeiro Nome</form:label>
 				<form:input path="nome" cssClass="form-control" />
 			</div>
 
-			<div class="form-group col-6">
+			<div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
 				<form:label path="sobrenome">Sobrenome Completo</form:label>
 				<form:input path="sobrenome" cssClass="form-control" />
 			</div>
 
-			<div class="form-group col-3">
-				<form:label path="apelido">Apelido</form:label>
-				<form:input path="apelido" cssClass="form-control" />
-			</div>
-
-			<div class="form-group col-3">
+			<div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
 				<form:label path="dataNascimento">Data de Nascimento</form:label>
 				<form:input path="dataNascimento" cssClass="form-control" />
 			</div>
 
-			<div class="form-group col-3">
+			<div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
 				<form:label path="cpf">CPF</form:label>
 				<form:input path="cpf" cssClass="form-control" />
 			</div>
+			
+			<div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
+				<form:label path="rg">RG</form:label>
+				<form:input path="rg" cssClass="form-control" />
+			</div>
+			
+			<div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
+				<form:label path="apelido">Apelido</form:label>
+				<form:input path="apelido" cssClass="form-control" />
+			</div>
 
-			<div class="form-group col-3">
+			<div class="form-group col-6">
 				<form:label path="estadoCivil">Estado Cívil</form:label>
 				<form:select path="estadoCivil" cssClass="form-control">
 					<option>Selecione</option>
@@ -53,7 +57,7 @@
 				</form:select>
 			</div>
 
-			<div class="form-group col-3">
+			<div class="form-group col-6">
 				<form:label path="sexo">Sexo</form:label>
 				<form:select path="sexo" cssClass="form-control">
 					<option>Selecione</option>
@@ -80,7 +84,8 @@
 		</div>
 
 		<hr>
-		<h2>Endereço</h2>
+		<h2 class="text-center">Endereço</h2>
+		
 		<div class="row">
 			<div class="form-group col-4">
 				<form:label path="enderecos[0].cep">CEP</form:label>
@@ -111,7 +116,7 @@
 				<form:input path="enderecos[0].uf" cssClass="form-control" id="uf" />
 			</div>
 		</div>
-		<input type="submit" value="Cadastrar" class="btn btn-primary">
+		<input type="submit" value="Cadastrar" class="btn form-control btn-primary">
 	</form:form>
 
 

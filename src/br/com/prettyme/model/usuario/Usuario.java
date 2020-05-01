@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,14 +24,13 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "T_PM_USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "TIPO_USUARIO")
 @EqualsAndHashCode(exclude = { "senha", "nome", "sobrenome", "apelido", "sexo", "dataNascimento", "endereco",
 		"telefone" }, onlyExplicitlyIncluded = true)
 public class Usuario {
 
 	@EqualsAndHashCode.Include
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
 	private int idUsuario;
 	
@@ -47,6 +45,9 @@ public class Usuario {
 	
 	@Column(name = "cpf_usuario")
 	private String cpf;
+	
+	@Column(name = "rg_usuario")
+	private String rg;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "dt_nascimento_usuario")
@@ -92,22 +93,20 @@ public class Usuario {
 		this.telefones.add(telefoneNovo);
 		}
 
-	
-	
-
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(int idUsuario, String nome, String sobrenome, String apelido, String cpf, Calendar dataNascimento,
-			Sexo sexo, EstadoCivil estadoCivil, String email, String login, String senha, List<Endereco> enderecos,
-			List<Telefone> telefones, Anamnese anamnese, MetodoPagamento metodoPagamento) {
+	public Usuario(int idUsuario, String nome, String sobrenome, String apelido, String cpf, String rg,
+			Calendar dataNascimento, Sexo sexo, EstadoCivil estadoCivil, String email, String login, String senha,
+			List<Endereco> enderecos, List<Telefone> telefones, Anamnese anamnese, MetodoPagamento metodoPagamento) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.apelido = apelido;
 		this.cpf = cpf;
+		this.rg = rg;
 		this.dataNascimento = dataNascimento;
 		this.sexo = sexo;
 		this.estadoCivil = estadoCivil;
@@ -126,6 +125,14 @@ public class Usuario {
 
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+	
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
 	public String getNome() {

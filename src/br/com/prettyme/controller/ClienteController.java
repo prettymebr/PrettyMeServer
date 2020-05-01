@@ -28,28 +28,27 @@ public class ClienteController {
 
 	@GetMapping("cadastrarCliente")
 	public ModelAndView cadastrarCliente(Cliente cliente) {
-		return new ModelAndView("cliente/cadastroCliente").addObject("sexo", Sexo.values()).addObject("estadoCivil",
-				EstadoCivil.values());
+		return new ModelAndView("cliente/cadastroCliente")
+				.addObject("sexo", Sexo.values())
+				.addObject("estadoCivil", EstadoCivil.values());
 	}
 
 	@Transactional
 	@PostMapping("cadastrarCliente")
 	public ModelAndView cadastrarCliente(@Valid Cliente cliente, BindingResult result, RedirectAttributes r) {
 		if (result.hasErrors()) {
-			cadastrarCliente(cliente);
-		} else if (clienteDao.buscarPorCPF(cliente.getCpf())) {
-			cadastrarCliente(cliente);
-		} else {
-			cliente.addEndereco(cliente.getEnderecos().get(0));
-			clienteDao.cadastrar(cliente);
+			cadastrarCliente(cliente);	
 		}
+		cliente.addEndereco(cliente.getEnderecos().get(0));
+		clienteDao.cadastrar(cliente);
+		/*
+		if (clienteDao.buscarPorCPFCheck(cliente.getCpf())) {
+			
+		} else {
+			cadastrarCliente(cliente);
+		}*/
 		r.addFlashAttribute("msg", "Cadastrado com sucesso");
 		return new ModelAndView("redirect:cadastrarCliente");
-	}
-
-	@GetMapping("listarCliente")
-	public ModelAndView listarCliente() {
-		return new ModelAndView("cliente/listaCliente").addObject("clientes", clienteDao.listar());
 	}
 
 	@GetMapping("editarCliente/{id}")
@@ -79,5 +78,31 @@ public class ClienteController {
 		}
 		return "redirect:/cliente/listarCliente";
 	}
-
+	
+	@GetMapping("listarClientes")
+	public ModelAndView listarCliente() {
+		return new ModelAndView("cliente/listarClientes").addObject("clientes", clienteDao.listar());
+	}
+	
+	@GetMapping("buscarPorNome")
+	public ModelAndView bucsarPorNome(String nome) {
+		if(nome == null) {
+			return new ModelAndView("cliente/listarClientes")
+					.addObject("clientes", clienteDao.listar());	
+		}else {
+			return new ModelAndView("cliente/listarClientes")
+					.addObject("clientes", clienteDao.buscarPorNome(nome));
+		}
+	}
+	
+	@GetMapping("buscarPorCpf")
+	public ModelAndView buscarPorCpf(String cpf) {
+		if(cpf == null) {
+			return new ModelAndView("cliente/listarClientes")
+					.addObject("clientes", clienteDao.listar());	
+		}else {
+			return new ModelAndView("cliente/listarClientes")
+					.addObject("clientes", clienteDao.buscarPorCPF(cpf));
+		}
+	}
 }

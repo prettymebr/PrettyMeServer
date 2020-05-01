@@ -17,6 +17,7 @@ import lombok.EqualsAndHashCode;
 public class Cliente extends Usuario{
 	
 	
+	
 	private float rate;
 	
 	@OneToMany(mappedBy = "cliente") 

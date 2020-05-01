@@ -21,20 +21,20 @@
 	    <ul class="navbar-nav mr-auto">
 	    <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Teste CEP
+	          Gerenciamento de Cliente
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="<c:url value="/genero/cadastrar"/>">Cadastrar</a>
+	          <a class="dropdown-item" href="<c:url value="/cliente/cadastrarCliente"/>">Cadastrar Cliente</a>
+	          <a class="dropdown-item" href="<c:url value="/cliente/listarClientes"/>">Listar Clientes</a>
 	        </div>
 	      </li>
 	      <li class="nav-item dropdown">
 	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Cadastro Usuario
+	          Gerenciamento de Prestador
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="<c:url value="/teste/cep"/>">Teste CEP</a>
-	          <a class="dropdown-item" href="<c:url value="/usuario/cadastrarCliente"/>">Cadastrar Cliente</a>
-	          <a class="dropdown-item" href="<c:url value="/usuario/cadastrarPrestador"/>">Cadastrar Prestador</a>
+	          <a class="dropdown-item" href="<c:url value="/prestador/cadastrarPrestador"/>">Cadastrar Prestador</a>
+	          <a class="dropdown-item" href="<c:url value="/prestador/listarPrestador"/>">Listar Prestadores</a>
 	        </div>
 	      </li>
 	    </ul>
