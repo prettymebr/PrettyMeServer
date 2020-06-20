@@ -25,6 +25,11 @@ public class ClienteController {
 
 	@Autowired
 	private ClienteDAO clienteDao;
+	
+	@GetMapping("loginCliente")
+	public ModelAndView loginCliente(Cliente cliente) {
+		return new ModelAndView("cliente/loginCliente");
+	}
 
 	@GetMapping("cadastrarCliente")
 	public ModelAndView cadastrarCliente(Cliente cliente) {
