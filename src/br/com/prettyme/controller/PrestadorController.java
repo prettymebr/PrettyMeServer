@@ -44,7 +44,7 @@ public class PrestadorController {
 
 	@GetMapping("listarPrestador")
 	public ModelAndView listarPrestador() {
-		return new ModelAndView("prestador/listaPrestador").addObject("prestadores", prestadorDao.listar());
+		return new ModelAndView("prestador/listarPrestador").addObject("prestadores", prestadorDao.listar());
 	}
 
 	@GetMapping("editarPrestador/{id}")

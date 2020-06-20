@@ -7,10 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>PrettyMe | ${titulo}</title>
-<link rel="stylesheet" type="text/css" 
-		href="<c:url value="/resources/css/bootstrap.min.css"/>">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css"/>">
+<script src="<c:url value="/resources/js/sociais.js"/>"></script>
+<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
+	<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v7.0&appId=1278485449017258&autoLogAppEvents=1"></script>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  <a class="navbar-brand" href="#">PrettyMe</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,14 +52,10 @@
 	<footer class="text-center">
 		Todos os direitos reservados &copy; - 2020
 	</footer>
-	
 	<script src="<c:url value="/resources/js/jquery-3.3.1.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/prettyJavaScript.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.min.js"/>"></script>
 	<jsp:invoke fragment="script"></jsp:invoke>
 </body>
 </html>
-
-
-
-

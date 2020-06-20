@@ -25,6 +25,9 @@ public class Endereco {
 
 	@Column(name = "rua_endereco")
 	private String logradouro;
+	
+	@Column(name = "numero_endereco")
+	private String numero;
 
 	@Column(name = "complemento_endereco")
 	private String complemento;
@@ -51,12 +54,13 @@ public class Endereco {
 		super();
 	}
 
-	public Endereco(int id_cep, String cep, String logradouro, String complemento, String bairro, String localidade,
-			String uf, boolean principal, Usuario usuario) {
+	public Endereco(int id_cep, String cep, String logradouro, String numero, String complemento, String bairro,
+			String localidade, String uf, boolean principal, Usuario usuario) {
 		super();
 		this.id_cep = id_cep;
 		this.cep = cep;
 		this.logradouro = logradouro;
+		this.numero = numero;
 		this.complemento = complemento;
 		this.bairro = bairro;
 		this.localidade = localidade;
@@ -65,6 +69,13 @@ public class Endereco {
 		this.usuario = usuario;
 	}
 
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
 
 	public int getId_cep() {
 		return id_cep;

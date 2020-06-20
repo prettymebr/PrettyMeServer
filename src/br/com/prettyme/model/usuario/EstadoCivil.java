@@ -2,7 +2,7 @@ package br.com.prettyme.model.usuario;
 
 public enum EstadoCivil {
 	
-	SOLTEIRO("Solteiro(a)"),CASADO("Casado(a)"),DIVORCIADO("Divorciado(a)"),VIUVO("Viúvo(a)");
+	SOLTEIRO("Solteiro(a)"),CASADO("Casado(a)"),DIVORCIADO("Divorciado(a)"),VIUVO("ViÃºvo(a)");
 	
 	private final String label;
 	

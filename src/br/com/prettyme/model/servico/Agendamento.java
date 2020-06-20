@@ -37,7 +37,7 @@ public class Agendamento {
 	@OneToMany(mappedBy = "agendamento")
 	private List<Servico> servicos;
 
-	@Column(name="ds_descrição")
+	@Column(name="ds_descricao")
 	private String descricao;
 
 	@Column(name="ds_observacoes")

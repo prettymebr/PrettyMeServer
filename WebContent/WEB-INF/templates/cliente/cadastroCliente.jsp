@@ -6,11 +6,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <tags:template titulo="Pagina de teste">
 
-	
-		
 	<h1 class="text-center">Cadastro de Cliente</h1>
-		
-		
+
 	<c:if test="${not empty msg }">
 		<div class="alert alert-success">${msg }</div>
 	</c:if>
@@ -31,19 +28,19 @@
 
 			<div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
 				<form:label path="dataNascimento">Data de Nascimento</form:label>
-				<form:input path="dataNascimento" cssClass="form-control" />
+				<form:input path="dataNascimento" cssClass="form-control data" />
 			</div>
 
 			<div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
 				<form:label path="cpf">CPF</form:label>
-				<form:input path="cpf" cssClass="form-control" />
+				<form:input path="cpf" cssClass="form-control cpf" />
 			</div>
-			
+
 			<div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
 				<form:label path="rg">RG</form:label>
 				<form:input path="rg" cssClass="form-control" />
 			</div>
-			
+
 			<div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
 				<form:label path="apelido">Apelido</form:label>
 				<form:input path="apelido" cssClass="form-control" />
@@ -85,16 +82,21 @@
 
 		<hr>
 		<h2 class="text-center">Endereço</h2>
-		
+
 		<div class="row">
 			<div class="form-group col-4">
 				<form:label path="enderecos[0].cep">CEP</form:label>
-				<form:input path="enderecos[0].cep" cssClass="form-control" id="cep" />
+				<form:input path="enderecos[0].cep" cssClass="form-control cep" id="cep" />
 			</div>
 			<div class="form-group col-4">
 				<form:label path="enderecos[0].logradouro">Logradouro</form:label>
 				<form:input path="enderecos[0].logradouro" cssClass="form-control"
 					id="logradouro" />
+			</div>
+				<div class="form-group col-4">
+				<form:label path="enderecos[0].numero">Número</form:label>
+				<form:input path="enderecos[0].numero" cssClass="form-control"
+					id="complemento" />
 			</div>
 			<div class="form-group col-4">
 				<form:label path="enderecos[0].complemento">Complemento</form:label>
@@ -116,8 +118,17 @@
 				<form:input path="enderecos[0].uf" cssClass="form-control" id="uf" />
 			</div>
 		</div>
-		<input type="submit" value="Cadastrar" class="btn form-control btn-primary">
+		<input type="submit" value="Cadastrar"
+			class="btn form-control btn-primary">
 	</form:form>
-
-
+	<br />
+	<br />
+		<div class="fb-login-button" data-size="large"	data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"
+		data-width="400px"></div>
+	<br />
+	<br />
+	<div id="my-signin2" class="g-signin2" data-width="300" data-height="200" data-longtitle="true" data-width="400px"></div>
+	<br />
+	<br />
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </tags:template>

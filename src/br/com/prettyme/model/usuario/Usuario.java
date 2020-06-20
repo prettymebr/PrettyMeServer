@@ -82,13 +82,13 @@ public class Usuario {
 	
 	
 	public void addEndereco(Endereco enderecoNovo) {
-		//lembre-se que a associação é bidirecional
+		//lembre-se que a associaÃ§Ã£o bidirecional
 		enderecoNovo.setUsuario(this);
 		this.enderecos.add(enderecoNovo);
 		}
 
 	public void addTelefone(Telefone telefoneNovo) {
-		//lembre-se que a associação é bidirecional
+		//lembre-se que a associaÃ§Ã£obidirecional
 		telefoneNovo.setUsuario(this);
 		this.telefones.add(telefoneNovo);
 		}
