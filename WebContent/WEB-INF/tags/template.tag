@@ -56,7 +56,6 @@
 	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/prettyJavaScript.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.mask.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.mask.min.js"/>"></script>
 	<jsp:invoke fragment="script"></jsp:invoke>
 </body>
 </html>
