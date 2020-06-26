@@ -35,8 +35,9 @@ public class ClienteController {
 	@PostMapping("logarCliente")
 	public ModelAndView logarCliente(Cliente cliente) {
 		System.out.println(cliente.getLogin());
+		
 		if(clienteDao.validaLogin(cliente.getLogin(), cliente.getSenha())) {
-			return new ModelAndView("index");
+			return new ModelAndView("/");
 		}
 		return new ModelAndView("redirect:loginCliente");
 	}

@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Pretty Me | Home</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>Bem vindo ao Pretty Me, seu mané!</h1>
+
+	<h1> FINALMENTE </h1>
+
 </body>
 </html>

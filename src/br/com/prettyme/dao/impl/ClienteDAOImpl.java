@@ -2,6 +2,8 @@ package br.com.prettyme.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.prettyme.dao.ClienteDAO;
@@ -38,8 +40,11 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente, Integer> implements 
 
 	@Override
 	public boolean validaLogin(String login, String senha) {
-		Cliente cli = (Cliente) em.createNativeQuery("select * from t_pm_cliente CLI join t_pm_usuario US "
+		System.out.println(login + "-" + senha);
+		Query q = em.createNativeQuery("select * from t_pm_cliente CLI join t_pm_usuario US "
 				+ "on US.id_usuario = CLI.idUsuario where US.login_usuario like '" + login + "';" , Cliente.class);
+		System.out.println(q);
+		Cliente cli =(Cliente) q.getSingleResult();
 		if(cli != null) {
 			if(cli.getLogin().equals(login) && cli.getLogin().equals(senha)) {
 				return true;
