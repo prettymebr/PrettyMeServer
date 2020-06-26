@@ -35,5 +35,17 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente, Integer> implements 
 				.setParameter("nome_usuario", "%" + nome + "%").getResultList();
 		
 	}
+
+	@Override
+	public boolean validaLogin(String login, String senha) {
+		Cliente cli = (Cliente) em.createNativeQuery("select * from t_pm_cliente CLI join t_pm_usuario US "
+				+ "on US.id_usuario = CLI.idUsuario where US.login_usuario like '" + login + "';" , Cliente.class);
+		if(cli != null) {
+			if(cli.getLogin().equals(login) && cli.getLogin().equals(senha)) {
+				return true;
+			} 
+		}
+		return false; 
+	}
 	
 }

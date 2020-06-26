@@ -13,6 +13,6 @@ public interface ClienteDAO extends GenericDAO<Cliente, Integer>{
 	
 	List<Cliente> buscarPorCPF(String cpf);
 	
-	
+	boolean validaLogin(String login, String senha);
 	
 }

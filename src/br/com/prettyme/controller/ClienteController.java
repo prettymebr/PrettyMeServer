@@ -20,7 +20,7 @@ import br.com.prettyme.model.usuario.EstadoCivil;
 import br.com.prettyme.model.usuario.Sexo;
 
 @Controller
-@RequestMapping("cliente")
+@RequestMapping("/cliente")
 public class ClienteController {
 
 	@Autowired
@@ -29,6 +29,16 @@ public class ClienteController {
 	@GetMapping("loginCliente")
 	public ModelAndView loginCliente(Cliente cliente) {
 		return new ModelAndView("cliente/loginCliente");
+	}
+	
+	@Transactional
+	@PostMapping("logarCliente")
+	public ModelAndView logarCliente(Cliente cliente) {
+		System.out.println(cliente.getLogin());
+		if(clienteDao.validaLogin(cliente.getLogin(), cliente.getSenha())) {
+			return new ModelAndView("index");
+		}
+		return new ModelAndView("redirect:loginCliente");
 	}
 
 	@GetMapping("cadastrarCliente")

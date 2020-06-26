@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +19,9 @@
 	<h1 class="text-center">Pretty Me</h1>
 
 	<main class="container">
-
-		<c:url value="/cliente/loginCliente" var="acao" />
-		<form:form action="#{acao }" method="post" modelAttribute="cliente">
+		
+		
+		<form:form action="${ s:mvcUrl('CC#logarCliente').build() }" method="post" commandName="cliente">
 
 			<div class="row">
 				<div class="form-group col-6 offset-3">
@@ -36,7 +36,7 @@
 			<br>
 			<div class="row">
 				<a class="offset-3 col-9" href="https://www.google.com.br/">Esqueci minha senha</a>
-				<br> <input type="submit" value="Login" class="btn btn-primary offset-5 col-3" />
+				<button type="submit">Login</button>
 			</div>
 
 		</form:form>
