@@ -245,6 +245,4 @@ public class Usuario {
 	public void setMetodoPagamento(MetodoPagamento metodoPagamento) {
 		this.metodoPagamento = metodoPagamento;
 	}
-	
-	
 }
