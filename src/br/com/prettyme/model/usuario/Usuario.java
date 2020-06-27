@@ -24,8 +24,11 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "T_PM_USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
+@EqualsAndHashCode(exclude = { "senha", "nome", "sobrenome", "apelido", "sexo", "dataNascimento", "endereco",
+"telefone" }, onlyExplicitlyIncluded = true)
 public class Usuario {
 
+	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
@@ -242,111 +245,5 @@ public class Usuario {
 
 	public void setMetodoPagamento(MetodoPagamento metodoPagamento) {
 		this.metodoPagamento = metodoPagamento;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((anamnese == null) ? 0 : anamnese.hashCode());
-		result = prime * result + ((apelido == null) ? 0 : apelido.hashCode());
-		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-		result = prime * result + ((dataNascimento == null) ? 0 : dataNascimento.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((enderecos == null) ? 0 : enderecos.hashCode());
-		result = prime * result + ((estadoCivil == null) ? 0 : estadoCivil.hashCode());
-		result = prime * result + idUsuario;
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
-		result = prime * result + ((metodoPagamento == null) ? 0 : metodoPagamento.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
-		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
-		result = prime * result + ((sexo == null) ? 0 : sexo.hashCode());
-		result = prime * result + ((sobrenome == null) ? 0 : sobrenome.hashCode());
-		result = prime * result + ((telefones == null) ? 0 : telefones.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		if (anamnese == null) {
-			if (other.anamnese != null)
-				return false;
-		} else if (!anamnese.equals(other.anamnese))
-			return false;
-		if (apelido == null) {
-			if (other.apelido != null)
-				return false;
-		} else if (!apelido.equals(other.apelido))
-			return false;
-		if (cpf == null) {
-			if (other.cpf != null)
-				return false;
-		} else if (!cpf.equals(other.cpf))
-			return false;
-		if (dataNascimento == null) {
-			if (other.dataNascimento != null)
-				return false;
-		} else if (!dataNascimento.equals(other.dataNascimento))
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (enderecos == null) {
-			if (other.enderecos != null)
-				return false;
-		} else if (!enderecos.equals(other.enderecos))
-			return false;
-		if (estadoCivil != other.estadoCivil)
-			return false;
-		if (idUsuario != other.idUsuario)
-			return false;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
-			return false;
-		if (metodoPagamento == null) {
-			if (other.metodoPagamento != null)
-				return false;
-		} else if (!metodoPagamento.equals(other.metodoPagamento))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (rg == null) {
-			if (other.rg != null)
-				return false;
-		} else if (!rg.equals(other.rg))
-			return false;
-		if (senha == null) {
-			if (other.senha != null)
-				return false;
-		} else if (!senha.equals(other.senha))
-			return false;
-		if (sexo != other.sexo)
-			return false;
-		if (sobrenome == null) {
-			if (other.sobrenome != null)
-				return false;
-		} else if (!sobrenome.equals(other.sobrenome))
-			return false;
-		if (telefones == null) {
-			if (other.telefones != null)
-				return false;
-		} else if (!telefones.equals(other.telefones))
-			return false;
-		return true;
 	}
 }
