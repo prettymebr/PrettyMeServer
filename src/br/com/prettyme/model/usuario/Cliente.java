@@ -48,4 +48,32 @@ public class Cliente extends Usuario{
 	public void setAgendamentos(List<Agendamento> agendamentos) {
 		this.agendamentos = agendamentos;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((agendamentos == null) ? 0 : agendamentos.hashCode());
+		result = prime * result + Float.floatToIntBits(rate);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		if (agendamentos == null) {
+			if (other.agendamentos != null)
+				return false;
+		} else if (!agendamentos.equals(other.agendamentos))
+			return false;
+		if (Float.floatToIntBits(rate) != Float.floatToIntBits(other.rate))
+			return false;
+		return true;
+	}
 }
