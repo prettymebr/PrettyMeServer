@@ -36,7 +36,7 @@
 			<br>
 			<div class="row">
 				<a class="offset-3 col-9" href="https://www.google.com.br/">Esqueci minha senha</a>
-				<button type="submit">Login</button>
+				<br><input type="submit" value="Login" class="btn btn-primary offset-5 col-3" />
 			</div>
 
 		</form:form>
