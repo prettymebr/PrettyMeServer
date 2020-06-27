@@ -25,12 +25,12 @@
 
 			<div class="row">
 				<div class="form-group col-6 offset-3">
-					<form:input path="login" placeholder="CPF, E-mail ou Usuário"
+					<form:input type="text" path="login" placeholder="CPF, E-mail ou Usuário"
 						cssClass="form-control" />
 				</div>
 
 				<div class="form-group col-6 offset-3">
-					<form:input path="senha" placeholder="Senha" cssClass="form-control" />
+					<form:input type="password" path="senha" placeholder="Senha" cssClass="form-control" />
 				</div>
 			</div>
 			<br>

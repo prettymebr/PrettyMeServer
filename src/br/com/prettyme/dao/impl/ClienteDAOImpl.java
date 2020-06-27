@@ -40,13 +40,14 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente, Integer> implements 
 
 	@Override
 	public boolean validaLogin(String login, String senha) {
-		System.out.println(login + "-" + senha);
 		Query q = em.createNativeQuery("select * from t_pm_cliente CLI join t_pm_usuario US "
-				+ "on US.id_usuario = CLI.idUsuario where US.login_usuario like '" + login + "';" , Cliente.class);
-		System.out.println(q);
+				+ "on US.id_usuario = CLI.id_usuario where US.login_usuario like '" + login + "';" , Cliente.class);
 		Cliente cli =(Cliente) q.getSingleResult();
+		
 		if(cli != null) {
-			if(cli.getLogin().equals(login) && cli.getLogin().equals(senha)) {
+			String loginCliente = cli.getLogin();
+			String senhaCliente = cli.getSenha();
+			if(loginCliente.equals(login) && senhaCliente.equals(senha)) {
 				return true;
 			} 
 		}

@@ -11,7 +11,7 @@ import br.com.prettyme.model.servico.Agendamento;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@PrimaryKeyJoinColumn(name="idUsuario")
+@PrimaryKeyJoinColumn(name="id_usuario")
 @Table(name = "T_PM_CLIENTE")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cliente extends Usuario{

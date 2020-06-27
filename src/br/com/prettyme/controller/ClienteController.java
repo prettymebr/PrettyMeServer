@@ -37,7 +37,7 @@ public class ClienteController {
 		System.out.println(cliente.getLogin());
 		
 		if(clienteDao.validaLogin(cliente.getLogin(), cliente.getSenha())) {
-			return new ModelAndView("/");
+			return new ModelAndView("index");
 		}
 		return new ModelAndView("redirect:loginCliente");
 	}

@@ -25,9 +25,8 @@ import lombok.EqualsAndHashCode;
 @Table(name = "T_PM_USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
 @EqualsAndHashCode(exclude = { "senha", "nome", "sobrenome", "apelido", "sexo", "dataNascimento", "endereco",
-		"telefone" }, onlyExplicitlyIncluded = true)
+"telefone" }, onlyExplicitlyIncluded = true)
 public class Usuario {
-
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
